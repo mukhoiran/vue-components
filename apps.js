@@ -37,11 +37,21 @@
 // })
 
 // <!-- =========== Passing data with Props =========== -->
-Vue.component('group',{
-  props: ['title','content'],
-  template: '<div><h2>{{title}}</h2><p>{{content}}</p></div>'
+// Vue.component('group',{
+//   props: ['title','content'],
+//   template: '<div><h2>{{title}}</h2><p>{{content}}</p></div>'
+// })
+
+// <!-- =========== Props =========== -->
+Vue.component('test',{
+  props: ['score1','score2'],
+  template: '<div><b>{{score1}}</b> with <b>{{score2}}</b></div>'
 })
 
 var app = new Vue({
-  el:'#app'
+  el:'#app',
+  data: {
+    message: 'hello props',
+    message2: 'hello props2'
+  }
 })
