@@ -32,7 +32,11 @@
       <group title='group 3' content='group 3 content'></group> -->
 
       <!-- =========== Props =========== -->
-      <test :score1='message' :score2='message2'></test>
+      <!-- <test :score1='message' :score2='message2'></test> -->
+
+      <!-- =========== Component with Event handler =========== -->
+      <name @applied='validation'></name>
+      <b v-if='valid'>You have input name</b>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

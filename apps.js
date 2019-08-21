@@ -43,15 +43,29 @@
 // })
 
 // <!-- =========== Props =========== -->
-Vue.component('test',{
-  props: ['score1','score2'],
-  template: '<div><b>{{score1}}</b> with <b>{{score2}}</b></div>'
+// Vue.component('test',{
+//   props: ['score1','score2'],
+//   template: '<div><b>{{score1}}</b> with <b>{{score2}}</b></div>'
+// })
+
+// <!-- =========== Component with Event handler =========== -->
+Vue.component('name', {
+  template: "<input type='text' placeholder='insert name' @blur='validation'></input>",
+  methods: {
+    validation(){
+      this.$emit('applied')
+    }
+  }
 })
 
 var app = new Vue({
   el:'#app',
   data: {
-    message: 'hello props',
-    message2: 'hello props2'
+    valid: false
+  },
+  methods:{
+    validation(){
+      this.valid = true;
+    }
   }
 })
