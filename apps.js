@@ -19,21 +19,27 @@
 // })
 
 // <!-- =========== Component, Slot, and Array =========== -->
-Vue.component('list',{
-  template: '<div><people v-for="p in peoplelist"> {{p.name}} age {{p.age}}</people></div>',
-  data: function(){
-    return {
-      peoplelist: [
-        { name: 'andre', age: '30'},
-        { name: 'sule', age: '40'},
-        { name: 'tukul', age: '50'},
-      ]
-    }
-  }
-})
+// Vue.component('list',{
+//   template: '<div><people v-for="p in peoplelist"> {{p.name}} age {{p.age}}</people></div>',
+//   data: function(){
+//     return {
+//       peoplelist: [
+//         { name: 'andre', age: '30'},
+//         { name: 'sule', age: '40'},
+//         { name: 'tukul', age: '50'},
+//       ]
+//     }
+//   }
+// })
+//
+// Vue.component('people',{
+//   template: '<li><slot></slot></li>'
+// })
 
-Vue.component('people',{
-  template: '<li><slot></slot></li>'
+// <!-- =========== Passing data with Props =========== -->
+Vue.component('group',{
+  props: ['title','content'],
+  template: '<div><h2>{{title}}</h2><p>{{content}}</p></div>'
 })
 
 var app = new Vue({
