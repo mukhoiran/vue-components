@@ -9,8 +9,13 @@
 // })
 
 // <!-- =========== Slot in action =========== -->
-Vue.component('textbold',{
-  template: '<b><slot></slot></b>'
+// Vue.component('textbold',{
+//   template: '<b><slot></slot></b>'
+// })
+
+// <!-- =========== Multi element =========== -->
+Vue.component('multitext',{
+  template: '<div><b>text bold</b><br><i>text italic</i><br><u>text underline</u></div>'
 })
 
 var app = new Vue({
