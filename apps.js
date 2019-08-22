@@ -49,23 +49,46 @@
 // })
 
 // <!-- =========== Component with Event handler =========== -->
-Vue.component('name', {
-  template: "<input type='text' placeholder='insert name' @blur='validation'></input>",
+// Vue.component('name', {
+//   template: "<input type='text' placeholder='insert name' @blur='validation'></input>",
+//   methods: {
+//     validation(){
+//       this.$emit('applied')
+//     }
+//   }
+// })
+
+// <!-- =========== Review component =========== -->
+Vue.component('vehicles',{
+  template: "<div><h1 v-if='showtitle'>Choose your gift</h1><content v-for='(v, index) in vehicle' v-if='showchoice'>{{v.type}} <button @click='click(index)' v-if='showalert'>choose</button></content><h1 v-if='showresult'>Please get your gift on dealer</h1></div>",
+  data: function(){
+    return {
+      vehicle: [
+        {type: 'Car'},
+        {type: 'Motorcycle'},
+        {type: 'Bike'}
+      ],
+      showalert: true,
+      showchoice: true,
+      showtitle: true,
+      showresult: false
+    }
+  },
   methods: {
-    validation(){
-      this.$emit('applied')
+    click(index) {
+      alert('Congratulations you get ' + this.vehicle[index].type);
+      this.showalert = false,
+      this.showchoice = false,
+      this.showtitle = false,
+      this.showresult = true
     }
   }
 })
 
+Vue.component('content',{
+  template: '<li><slot></slot></li>'
+})
+
 var app = new Vue({
   el:'#app',
-  data: {
-    valid: false
-  },
-  methods:{
-    validation(){
-      this.valid = true;
-    }
-  }
 })
